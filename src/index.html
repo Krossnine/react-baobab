@@ -1,12 +1,17 @@
 <!doctype html>
 <html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title>Truly isomorphic application with React, Baobab and Github API</title>
-</head>
-<body>
-{{app}}
-<script type="javascript">window.__store = '{{store}}';</script>
-<script src="/app.js"></script>
-</body>
+
+  <head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Truly isomorphic application with React, Baobab and Github API</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+
+  <body id="react-baobab">
+    {{app}}
+    <script type="javascript">window.__store = '{{store}}';</script>
+    <script src="/app.js"></script>
+  </body>
+
 </html>

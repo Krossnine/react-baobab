@@ -14,17 +14,19 @@ var SearchResults = React.createClass({
 
   renderResult : function renderResult(result) {
     return (
-      <li>
-        <Link to="user" params={{userLogin: result.login}}>{result.login}</Link>
-      </li>
+        <div className="col-md-3">
+          <Link to="user" params={{userLogin : result.login}}>
+            <img src={result.avatar_url} className="img-responsive" />
+          </Link>
+        </div>
     );
   },
 
   render : function() {
     return (
-      <ul>
+        <div className="row">
         {this.state.results.map(this.renderResult)}
-      </ul>
+        </div>
     );
   }
 });

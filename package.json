@@ -38,9 +38,11 @@
     "react": "0.12.2"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.4",
     "browserify": "9.0.3",
     "fs-extra": "0.16.5",
     "gulp": "3.8.11",
+    "gulp-concat": "^2.5.2",
     "gulp-if": "1.2.5",
     "gulp-nodemon": "1.0.5",
     "gulp-streamify": "0.0.5",

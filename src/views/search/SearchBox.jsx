@@ -27,9 +27,12 @@ var SearchBox = React.createClass({
 
   render : function() {
     return (
-      <form onSubmit={this.searchUsers}>
-        <input type="text" valueLink={this.linkState('query')} placeholder={this.props.placeholder} />
-      </form>
+        <form onSubmit={this.searchUsers}>
+          <input type="text"
+                 className="form-control input-lg"
+                 valueLink={this.linkState('query')}
+                 placeholder={this.props.placeholder} />
+        </form>
     );
   }
 });

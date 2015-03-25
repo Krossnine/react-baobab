@@ -11,13 +11,16 @@ var reactify = require("reactify");
 var uglify = require("gulp-uglify");
 var watchify = require("watchify");
 var nodemon = require("gulp-nodemon");
+var concat = require('gulp-concat');
 
 var config = {
 	production : process.env.NODE_ENV === 'production',
 	paths : {
 		dist : './dist/',
 		jsBundleSrc : ['./src/routes/clientRouter.jsx'],
-		jsBundleDest : 'app.js'
+		jsBundleDest : 'app.js',
+    cssFiles : ["./src/**/*.css"],
+    cssBundle : "app.css"
 	}
 };
 
@@ -57,6 +60,16 @@ gulp.task("watch:js", ["js"], function() {
 			});
 });
 
+gulp.task('css', function () {
+  return gulp.src(config.paths.cssFiles)
+      .pipe(concat(config.paths.cssBundle))
+      .pipe(gulp.dest(config.paths.dist));
+});
+
+gulp.task('watch:css', ['css'], function () {
+  return gulp.watch(config.paths.cssFiles, ["css"]);
+});
+
 gulp.task("vendors", function() {
 	return gulp.src('node_modules/bootstrap/dist/**')
 			.pipe(gulp.dest(config.paths.dist));
@@ -73,6 +86,5 @@ gulp.task('server-sync', function(/*cb*/) {
 	});
 });
 
-gulp.task("default", ["watch:js", "server-sync"]);
-
-gulp.task("release", ["clean", "js"]);
+gulp.task("default", ["vendors", "server-sync", "watch:js", "watch:css"]);
+gulp.task("release", ["clean", "vendors", "js", "css"]);
