@@ -12,7 +12,7 @@ var UserView = require('../views/user/UserView.jsx');
 var NotFoundView = require('../views/404/NotFoundView.jsx');
 
 var routes = (
-  <Route name="app" path="/" handler={App}>
+  <Route name="index" path="/" handler={App}>
     <DefaultRoute name="search" handler={SearchView} />
 	  <Route name="user" path="/user/:userLogin" handler={UserView} />
     <NotFoundRoute name="404" handler={NotFoundView}/>

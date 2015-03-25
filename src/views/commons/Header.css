@@ -1,4 +1,14 @@
+#github-link {
+    color: #333;
+    transition: .3s;
+}
+
+#github-link:hover {
+    color: #4183c4;
+}
+
 #github-logo {
+
     margin: 0 auto;
     display: table;
     padding: 20px;
