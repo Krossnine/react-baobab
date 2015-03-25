@@ -21,6 +21,14 @@ var SearchActions = {
       Store.select("user").edit(user);
       Store.commit();
     });
+  },
+
+  clearSearch : function() {
+    Store.select("search").edit({
+      query : "",
+      results : []
+    });
+    Store.commit();
   }
 };
 

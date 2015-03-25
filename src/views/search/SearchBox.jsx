@@ -10,7 +10,7 @@ var SearchBox = React.createClass({
     placeholder : React.PropTypes.string
   },
 
-  mixins : [StoreMixin, React.addons.LinkedStateMixin],
+  mixins : [StoreMixin],
 
   getInitialState : function() {
     return {
@@ -22,7 +22,20 @@ var SearchBox = React.createClass({
     event.preventDefault();
     if (this.state.query) {
       GitHubActions.searchUsers(this.state.query);
+    } else {
+      this.clearSearch();
     }
+  },
+
+  handleChange: function(event) {
+    this.state.query = event.target.value;
+    if (!this.state.query && this.state.query.length == 0) {
+      this.clearSearch();
+    }
+  },
+
+  clearSearch : function() {
+    GitHubActions.clearSearch();
   },
 
   render : function() {
@@ -32,7 +45,7 @@ var SearchBox = React.createClass({
             <form onSubmit={this.searchUsers}>
               <input type="text"
                   className="form-control input-lg"
-                  valueLink={this.linkState('query')}
+                  onChange={this.handleChange}
                   placeholder={this.props.placeholder} />
             </form>
           </div>
