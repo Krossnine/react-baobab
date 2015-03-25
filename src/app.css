@@ -1,3 +1,5 @@
 #react-baobab {
     background: #f7f7f7;
 }
+
+@import url("./views/commons/Header.css");

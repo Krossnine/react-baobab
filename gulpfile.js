@@ -71,8 +71,10 @@ gulp.task('watch:css', ['css'], function () {
 });
 
 gulp.task("vendors", function() {
-	return gulp.src('node_modules/bootstrap/dist/**')
-			.pipe(gulp.dest(config.paths.dist));
+	return gulp.src([
+    'node_modules/bootstrap/dist/**',
+    'node_modules/font-awesome/**']
+  ).pipe(gulp.dest(config.paths.dist));
 });
 
 gulp.task('server-sync', function(/*cb*/) {
