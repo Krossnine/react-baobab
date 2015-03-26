@@ -1,25 +1,38 @@
 "use strict";
 var Promise = require("bluebird");
-var SearchData = require("./search.json");
-var UserData = require("./user.json");
+var request = require("superagent");
+var GITHUB_API_HOST = "https://api.github.com";
 
 var GithubClient = {
 
   searchUsers : function searchUsers(query) {
     return new Promise(function Promise(resolve, reject) {
-      if (!query) {
-        reject(new Error("Empty query term."));
-      }
-      else {
-        resolve(SearchData.items);
-      }
+      request
+          .get(GITHUB_API_HOST + '/search/users')
+          .query({q : query})
+          .set('Accept', 'application/json')
+          .end(function(err, res) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(res.body.items);
+            }
+          });
     });
   },
 
-  getUser : function getUser(login) {
+  getUser : function getUser(username) {
     return new Promise(function Promise(resolve, reject) {
-      resolve(UserData);
-      //result ? resolve(result) : reject(new Error("User not found"));
+      request
+          .get(GITHUB_API_HOST + '/users/'+username)
+          .set('Accept', 'application/json')
+          .end(function(err, res) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(res.body);
+            }
+          });
     });
   }
 

@@ -4,7 +4,7 @@
   "description": "Truly isomorphic application with React, Baobab and Github API",
   "main": "index.js",
   "scripts": {
-    "postinstall" : "NODE_ENV=production node node_modules/gulp/bin/gulp.js release",
+    "postinstall": "NODE_ENV=production node node_modules/gulp/bin/gulp.js release",
     "start": "NODE_ENV=production node index.js",
     "watch": "node node_modules/gulp/bin/gulp.js",
     "test": "exit 0"
@@ -35,8 +35,9 @@
     "bluebird": "2.9.14",
     "express": "4.12.2",
     "node-jsx": "0.12.4",
+    "react": "0.12.2",
     "react-router": "0.12.4",
-    "react": "0.12.2"
+    "superagent": "1.1.0"
   },
   "devDependencies": {
     "bootstrap": "^3.3.4",
