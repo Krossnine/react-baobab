@@ -1,0 +1,17 @@
+.user-detail {
+    margin: 0px auto;
+    padding : 5px;
+}
+
+.user-detail-field {
+    min-width : 150px;
+    padding-left : 10px;
+}
+
+.user-detail-value {
+    font-weight: bold;
+}
+
+.user-detail-field, .user-detail-value {
+    display: inline-block;
+}

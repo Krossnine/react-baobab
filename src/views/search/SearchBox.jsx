@@ -2,7 +2,7 @@
 
 var React = require("react");
 var StoreMixin = require("../../stores/StoreMixin");
-var GitHubActions = require("../../actions/GitHubActions");
+var SearchActions = require("../../actions/SearchActions");
 
 var SearchBox = React.createClass({
 
@@ -21,7 +21,7 @@ var SearchBox = React.createClass({
   searchUsers : function(event) {
     event.preventDefault();
     if (this.state.query) {
-      GitHubActions.searchUsers(this.state.query);
+      SearchActions.searchUsers(this.state.query);
     } else {
       this.clearSearch();
     }
@@ -35,12 +35,12 @@ var SearchBox = React.createClass({
   },
 
   clearSearch : function() {
-    GitHubActions.clearSearch();
+    SearchActions.clearSearch();
   },
 
   render : function() {
     return (
-        <div className="row">
+        <div className="row" id="search-box">
           <div className="col-md-6 col-md-offset-3">
             <form onSubmit={this.searchUsers}>
               <input type="text"

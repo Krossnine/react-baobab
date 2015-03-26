@@ -14,8 +14,8 @@ var SearchResults = React.createClass({
 
   renderResult : function renderResult(result) {
     return (
-        <div className="col-md-3">
-          <Link to="user" params={{userLogin : result.login}}>
+        <div className="col-md-2">
+          <Link to="user" params={{userLogin : result.login}} className="thumbnail">
             <img src={result.avatar_url} className="img-responsive" />
           </Link>
         </div>

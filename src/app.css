@@ -2,4 +2,11 @@
     background: #f7f7f7;
 }
 
+* {
+    font-family: 'Lato', 'Verdana', 'Tahoma', sans-serif;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 @import url("./views/commons/Header.css");
+@import url("./views/search/SearchView.css");
+@import url("./views/user/UserView.css");
