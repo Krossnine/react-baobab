@@ -4,7 +4,7 @@ require("node-jsx").install({extension : ".jsx"});
 
 var React = require("react");
 var Router = require("react-router");
-var Routes = require("./routes.jsx");
+var Routes = require("./Routes.jsx");
 var RoutesHandler = require("./RoutesHandler");
 var Store = require("../stores/Store");
 var fs = require("fs");

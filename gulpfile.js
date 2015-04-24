@@ -17,7 +17,7 @@ var config = {
 	production : process.env.NODE_ENV === 'production',
 	paths : {
 		dist : './dist/',
-		jsBundleSrc : ['./src/routes/clientRouter.jsx'],
+		jsBundleSrc : ['./src/routes/ClientRouter.jsx'],
 		jsBundleDest : 'app.js',
     cssFiles : ["./src/**/*.css"],
     cssBundle : "app.css"
